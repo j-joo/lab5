@@ -241,8 +241,7 @@ public class MainApp extends Application {
 		 * If it's a Table, handle Table - level action
 		 * If it's a GamePlay, handle GamePlay - level action
 		 */
-		@Override
-		protected void messageReceived(final Object message) {
+		protected void messageReceived(final Object message, Table HubPokerTable) {
 			Platform.runLater(() -> {		
 				System.out.println("Message Received.  The message: " + message);
 				
@@ -252,9 +251,8 @@ public class MainApp extends Application {
 				}
 				else if (message instanceof Table)
 				{
-					//TODO: If the message is a Table, run the 
-					//		method Handle_TableState in the 
-					//		pokerController.
+					
+					pokerController.Handle_TableState(HubPokerTable);
 				}
 				pokerController.MessageFromMainApp((String)message);
 			});

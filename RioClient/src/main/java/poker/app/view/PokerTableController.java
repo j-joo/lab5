@@ -138,17 +138,14 @@ public class PokerTableController implements Initializable {
 
 	public void Handle_TableState(Table HubPokerTable) {
 
-		//TODO: If this message is called, that means there
-		//		was a change to the state of the Table (player
-		//		probably ran 'sit' or 'leave'
-		//		The Table was updated, you just have to refresh the
-		//		UI controls to show the current state of the 
-		//		Table object
-		
+		Table.StateOfTable(HubPokerTable);
 		//TODO: run the 'getHashPlayers' method, iterate 
 		//		for all players and update the player label
 		//		and state of the sit/leave button.
-
+		for(int i=1; i<5;i++){
+			HubPokerTable.getHashPlayers();
+		}
+		
 		//		Example: Joe sits at Position 1
 		//		Joe should see the 'Sit' button in position 1 in the
 		//		'pressed in' state, and with 
